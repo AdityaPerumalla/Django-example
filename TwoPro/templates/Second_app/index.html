@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>My Second App</title>
+    <link rel="stylesheet" href="{%static "css/mystyle.css"%}"/>
+  </head>
+  <body>
+    <h1>Welcome Database</h1>
+    <h2>Here our Webpage records</h2>
+      <div class="djangoTwo">
+    {% if webpage_records %}
+      <table>
+        <thead>
+          <th>Comapany name</th>
+          <th>URL</th>
+        </thead>
+
+        {%for wp in webpage_records%}
+        <tr>
+          <td>{{wp.name}}</td>
+          <td>{{wp.url}}</td>
+        </tr>
+       {% endfor %}
+       </table>
+       {% else %}
+       <p>No records found</p>
+       {% endif %}
+     </div>
+  </body>
+</html>
